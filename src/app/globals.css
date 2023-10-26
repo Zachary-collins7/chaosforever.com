@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+*/
+
+:root {
+    --primary-4: hsl(11, 84%, 59%);
+    --primary-5: hsl(11, 79%, 50%);
+    --primary-6: hsl(11, 85%, 46%);
+    --secondary-4: hsl(200, 6%, 15%);
+    --secondary-5: hsl(200, 6%, 10%);
+    --accent-5: #be604b;
+    --text-5: #F3F2F2;
+    --background-2:hsl(0, 4%, 24%);
+    --background-3:hsl(0, 4%, 16%);
+    --background-4:hsl(0, 4%, 8%);
+    --background-5: hsl(0, 4%, 5%);
+}
+
+body {
+    color: var(--text-5);
+    background-color: var(--background-5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}

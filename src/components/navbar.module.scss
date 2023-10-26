@@ -1,0 +1,208 @@
+$nav-height: 3rem;
+$mobile-breakpoint: 768px;
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-5);
+    height: $nav-height;
+    padding: 0 1rem;
+    z-index: 1001;
+    border-bottom: 1px solid var(--background-2);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1em;
+}
+
+.burger {
+    position: relative;
+    height: 80%;
+    aspect-ratio: 1;
+    @media screen and (min-width: $mobile-breakpoint) {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 3px;
+    width: 80%;
+    background-color: var(--text-5);
+    translate: -50% -50%;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+
+    &:nth-child(1) {
+        transform: translateY(-0.5rem);
+    }
+    &:nth-child(3) {
+        transform: translateY(0.5rem);
+    }
+}
+.content {
+    position: fixed;
+    top: calc($nav-height);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 120vh;
+    padding: 0 1rem;
+    gap: 1rem;
+    user-select: none;
+    overflow-x: clip;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.3s ease-in-out;
+    background-color: inherit;
+
+    padding-bottom: 20vh;
+
+    // scroll lock
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        z-index: -1;
+        background-color: inherit;
+        @media screen and (min-width: $mobile-breakpoint) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: $mobile-breakpoint) {
+        position: relative;
+        flex-direction: row;
+        height: 100%;
+        padding: 0;
+        width: unset;
+        clip-path: unset;
+        top: unset;
+        left: unset;
+        overflow: hidden;
+    }
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @media screen and (min-width: $mobile-breakpoint) {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    & > *:not(.linkGroup),
+    & > .linkGroup > summary {
+        border-bottom: 1px solid var(--background-2);
+        padding: 0.5rem 0;
+        @media screen and (min-width: $mobile-breakpoint) {
+            border-bottom: unset;
+        }
+    }
+    a {
+        user-select: auto;
+    }
+}
+
+.linkGroup {
+    position: relative;
+    width: 100%;
+
+    & > summary {
+        list-style: none;
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::after {
+            content: " \203A";
+            position: absolute;
+            top: 1.25rem;
+            right: 0;
+            font-size: 2em;
+            transform: translateY(-50%);
+            user-select: none;
+
+            @media screen and (min-width: $mobile-breakpoint) {
+                display: none;
+            }
+        }
+        @media screen and (min-width: $mobile-breakpoint) {
+            height: 100%;
+        }
+    }
+    &[open] > summary::after {
+        transform: translateY(-50%) rotateZ(90deg);
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.6rem;
+
+        li {
+            border-bottom: 1px solid var(--background-2);
+            padding: 0.5rem 0;
+            margin-left: 1ch;
+            &::before {
+                content: "-";
+                margin-right: 1ch;
+            }
+        }
+    }
+    @media screen and (min-width: $mobile-breakpoint) {
+        & > ul {
+            display: none;
+        }
+    }
+}
+
+.iconLink {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    background-color: #7289da;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.mobileExtra {
+    @media screen and (min-width: $mobile-breakpoint) {
+        display: none;
+    }
+}
+
+// expanded nav styles
+.nav.expanded {
+    .burger .line {
+        &:nth-child(1) {
+            top: 50%;
+            transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+            transform: scaleX(0);
+        }
+        &:nth-child(3) {
+            top: 50%;
+            transform: rotate(-45deg);
+        }
+    }
+    .content {
+        clip-path: inset(0 0 0 0);
+    }
+}
