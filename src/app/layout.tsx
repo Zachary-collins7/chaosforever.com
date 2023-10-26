@@ -62,8 +62,8 @@ export const metadata: Metadata = {
             "The top guild in every game we have played and we are not about to stop",
         images: [
             {
-                url: "/assets/images/bg-large.webp",
-                type: "image/webp",
+                url: "/assets/images/seobanner.jpg",
+                type: "image/jpeg",
                 width: 1920,
                 height: 1080,
                 alt: "Chaos Logo",
