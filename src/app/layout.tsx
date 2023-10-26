@@ -62,7 +62,7 @@ export const metadata: Metadata = {
             "The top guild in every game we have played and we are not about to stop",
         images: [
             {
-                url: "/public/assets/images/bg-large.webp",
+                url: "/assets/images/bg-large.webp",
                 type: "image/webp",
                 width: 1920,
                 height: 1080,
