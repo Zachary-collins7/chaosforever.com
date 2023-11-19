@@ -1,42 +1,47 @@
+"use client";
+import { useEffect } from "react";
+import styles from "./hero.module.scss";
 import Link from "next/link";
 
 export default function Hero() {
+    useEffect(() => {
+        // on load
+        console.log("Hero loaded");
+    }, []);
+
     return (
-        <div
-            style={{
-                backgroundImage:
-                    "linear-gradient(to bottom, hsla(0, 14%, 4%, 1), hsla(0, 14%, 4%, 0.15), hsla(0, 14%, 4%, 0.15), hsla(0, 14%, 4%, 1)), url('/assets/images/bg-large.webp')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundBlendMode: "brightness",
-            }}
-            className="w-full h-screen supports-[height:100svh]:h-[100svh] flex flex-row justify-center items-end md:items-center"
-        >
-            <div className="container py-16">
-                <div className="rounded-lg backdrop-blur-md p-4 inline-block">
-                    <div className="font-bold mb-6 drop-shadow-md">
-                        <h1 className="text-4xl sm:text-7xl mb-4">Chaos</h1>
-                        <p className="opacity-75">
-                            The top guild in every game we have played and we
-                            are not about to stop
-                        </p>
-                    </div>
-                    <div className="flex gap-3">
-                        <Link
-                            href="https://discord.gg/N6kS828sJ3"
-                            className="px-4 py-2 rounded-md text-white bg-primary-500 hover:bg-primary-600 transition-colors"
-                        >
-                            Join our Discord
-                        </Link>
-                        <Link
-                            href="/about"
-                            className="px-4 py-2 rounded-md text-white bg-secondary-500 hover:bg-secondary-400 transition-colors"
-                        >
-                            About Us
-                        </Link>
+        <>
+            <svg width="0" height="0">
+                <filter id="svg_filter" x="0" y="0" width="100%" height="100%">
+                    <feTurbulence type="fractalNoise" baseFrequency=".537" />
+                    <feColorMatrix type="saturate" values="0" />
+                    <feBlend in="SourceGraphic" mode="multiply" />
+                </filter>
+            </svg>
+            <div className={styles.wrapper}>
+                <div className={styles.background} />
+                <div className={styles.inner}>
+                    <div className={styles.name}>
+                        <span className={styles.start}>C</span>
+                        <span className={styles.blackHole}>
+                            <span className={styles.disk}>
+                                <span className={styles.arc0}></span>
+                                <span className={styles.arc1}></span>
+                                <span className={styles.arc2}></span>
+                                <span className={styles.arc3}></span>
+                                <span className={styles.arc4}></span>
+                                <span className={styles.arc5}></span>
+                                <span className={styles.arc6}></span>
+                                <span className={styles.arc7}></span>
+                                <span className={styles.arc8}></span>
+                                <span className={styles.arc9}></span>
+                            </span>
+                            <span className={styles.orb}></span>
+                        </span>
+                        <span className={styles.end}>haos</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
