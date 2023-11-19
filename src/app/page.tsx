@@ -15,10 +15,35 @@ export default function Home() {
             className="relative bg-background-500 flex min-h-screen flex-col items-center justify-between"
         >
             <Hero />
+            <Join />
             <WhatAreWe />
             <WhatWeArePlaying />
             <OurMission />
         </main>
+    );
+}
+
+function Join() {
+    return (
+        <div className="container py-4 flex flex-col justify-center items-center">
+            <h3 className="text-2xl mb-2">Here for Immortal Rising?</h3>
+            <div className="flex gap-3 w-full justify-center">
+                <Link
+                    href="https://discord.gg/N6kS828sJ3"
+                    className="bg-accent-500 rounded-md px-2 py-1 text-center"
+                    target="_blank"
+                >
+                    Join Us on Discord
+                </Link>
+                <Link
+                    href="https://discord.gg/immortalrising"
+                    className="border border-accent-500 rounded-md px-2 py-1 text-center"
+                    target="_blank"
+                >
+                    Community Discord
+                </Link>
+            </div>
+        </div>
     );
 }
 
